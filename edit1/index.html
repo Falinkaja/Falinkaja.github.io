@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mading Kartu Member - FALINK</title>
+    <title>Flyer Promosi Member - FALINK</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
@@ -21,440 +21,390 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 24px 16px;
-            gap: 14px;
+            padding: 30px 16px;
+            gap: 16px;
         }
 
-        /* ===== TOOLBAR ===== */
-        .toolbar {
+        /* ===== PRINT BUTTON ===== */
+        .print-bar {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
-        .btn {
+        .btn-print {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
             color: white;
             border: none;
-            padding: 11px 22px;
-            border-radius: 10px;
-            font-size: 0.9rem;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             font-family: 'Inter', sans-serif;
-            transition: transform 0.15s, opacity 0.15s;
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35);
+            transition: transform 0.15s;
         }
 
-        .btn:hover {
+        .btn-print:hover {
             transform: translateY(-2px);
-            opacity: 0.92;
         }
 
-        .btn:disabled {
-            opacity: 0.55;
+        .btn-save {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+            transition: transform 0.15s;
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-img {
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: transform 0.15s;
+        }
+
+        .btn-img:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .btn-img:disabled {
+            opacity: 0.6;
             cursor: not-allowed;
             transform: none;
         }
 
-        .btn-print {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            box-shadow: 0 4px 14px rgba(220, 38, 38, .35);
-        }
-
-        .btn-pdf {
-            background: linear-gradient(135deg, #10b981, #059669);
-            box-shadow: 0 4px 14px rgba(16, 185, 129, .3);
-        }
-
         .btn-png {
             background: linear-gradient(135deg, #f59e0b, #d97706);
-            box-shadow: 0 4px 14px rgba(245, 158, 11, .3);
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
         }
 
         .btn-jpg {
             background: linear-gradient(135deg, #ec4899, #db2777);
-            box-shadow: 0 4px 14px rgba(236, 72, 153, .3);
+            box-shadow: 0 4px 16px rgba(236, 72, 153, 0.35);
         }
 
         .hint {
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             color: #64748b;
             text-align: center;
         }
 
-        /* ===== POSTER — LANDSCAPE A4 ===== */
-        #poster {
-            width: 297mm;
-            height: 210mm;
+        /* ===== FLYER CARD ===== */
+        #flyer {
+            width: 210mm;
+            min-height: 297mm;
             background: white;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, .2);
-            display: flex;
-            flex-direction: row;
-        }
-
-        /* ---- LEFT PANEL ---- */
-        .left-panel {
-            width: 42%;
-            background: linear-gradient(160deg, #7f1d1d 0%, #dc2626 50%, #ef4444 100%);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+            position: relative;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 32px 28px;
+        }
+
+        /* HEADER */
+        .flyer-header {
+            background: linear-gradient(135deg, #7f1d1d 0%, #dc2626 50%, #ef4444 100%);
+            padding: 40px 36px 32px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .left-panel::before {
+        .flyer-header::before {
             content: '';
             position: absolute;
             top: -60px;
             left: -60px;
-            width: 240px;
-            height: 240px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, .06);
+            background: rgba(255, 255, 255, 0.07);
         }
 
-        .left-panel::after {
+        .flyer-header::after {
             content: '';
             position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 180px;
-            height: 180px;
+            bottom: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, .06);
+            background: rgba(255, 255, 255, 0.07);
         }
 
-        .store-logo {
-            font-size: 2.8rem;
+        .store-name {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -0.02em;
             line-height: 1;
             position: relative;
             z-index: 1;
         }
 
-        .store-name {
-            font-size: 2rem;
-            font-weight: 900;
+        .store-tagline {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 6px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .promo-badge {
+            display: inline-block;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
             color: white;
-            letter-spacing: -0.02em;
-            text-align: center;
-            margin-top: 8px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .store-sub {
-            font-size: 0.72rem;
-            color: rgba(255, 255, 255, .65);
-            text-align: center;
-            margin-top: 5px;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Alert card */
-        .alert-card {
-            margin-top: 22px;
-            background: rgba(255, 255, 255, .12);
-            border: 1.5px solid rgba(255, 255, 255, .25);
-            border-radius: 14px;
-            padding: 14px 16px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(4px);
-        }
-
-        .alert-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .alert-title {
-            font-size: 0.78rem;
-            font-weight: 900;
-            color: #fef08a;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            line-height: 1.3;
-        }
-
-        .alert-desc {
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, .8);
-            margin-top: 5px;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        /* Divider dots */
-        .dots {
-            display: flex;
-            gap: 5px;
-            margin-top: 18px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .3);
-        }
-
-        .dot.active {
-            background: #fef08a;
-        }
-
-        /* ---- RIGHT PANEL ---- */
-        .right-panel {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 28px 30px 20px;
-            background: #fafbff;
-        }
-
-        .panel-title {
-            font-size: 0.62rem;
+            font-size: 1.05rem;
             font-weight: 800;
-            letter-spacing: 0.12em;
+            padding: 10px 28px;
+            border-radius: 999px;
+            letter-spacing: 0.02em;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(6px);
+        }
+
+        /* BODY */
+        .flyer-body {
+            padding: 30px 36px;
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: #ef4444;
-            margin-bottom: 10px;
+            margin-bottom: 16px;
         }
 
-        .main-heading {
-            font-size: 1.35rem;
-            font-weight: 900;
-            color: #1e293b;
-            line-height: 1.25;
-            margin-bottom: 20px;
-        }
-
-        .main-heading span {
-            color: #ef4444;
-        }
-
-        /* ---- STEPS ---- */
+        /* Steps */
         .steps {
             display: flex;
-            flex-direction: column;
-            gap: 11px;
+            gap: 0;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 22px;
+            right: 22px;
+            height: 2px;
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+            z-index: 0;
+        }
+
+        .step {
             flex: 1;
-        }
-
-        .step-row {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 14px;
-            background: white;
-            border: 1.5px solid #fca5a5;
-            border-radius: 14px;
-            padding: 11px 14px;
-            transition: background 0.15s;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
         }
 
-        .snum {
-            width: 34px;
-            height: 34px;
+        .step-num {
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background: linear-gradient(135deg, #ef4444, #dc2626);
             color: white;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             font-weight: 900;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 3px 10px rgba(220, 38, 38, .4);
+            box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
+            border: 3px solid white;
         }
 
-        .s-emoji {
-            font-size: 1.4rem;
-            flex-shrink: 0;
-            width: 28px;
+        .step-text {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #475569;
             text-align: center;
-        }
-
-        .s-info {
-            flex: 1;
-        }
-
-        .s-title {
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #1e293b;
-        }
-
-        .s-desc {
-            font-size: 0.68rem;
-            color: #64748b;
-            margin-top: 1px;
             line-height: 1.4;
         }
 
-        /* ---- FOOTER STRIP ---- */
-        .footer-strip {
-            margin-top: 14px;
-            background: linear-gradient(135deg, #dc2626, #ef4444);
-            border-radius: 12px;
-            padding: 12px 18px;
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #fff5f5, #fef2f2);
+            border: 1.5px solid #fee2e2;
+            border-radius: 16px;
+            padding: 18px 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .feature-title {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 3px;
+        }
+
+        .feature-desc {
+            font-size: 0.72rem;
+            color: #64748b;
+            line-height: 1.45;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #7f1d1d, #ef4444);
+            border-radius: 20px;
+            padding: 24px 28px;
+            color: white;
+            text-align: center;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .highlight-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .highlight-main {
+            font-size: 1.5rem;
+            font-weight: 900;
+            line-height: 1.25;
+        }
+
+        .highlight-sub {
+            font-size: 0.82rem;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: #fff1f2;
+            border: 2px dashed #fca5a5;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+
+        .cta-sub {
+            font-size: 0.82rem;
+            color: #64748b;
+            margin-bottom: 14px;
+        }
+
+        .cta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 800;
+            padding: 12px 28px;
+            border-radius: 999px;
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+        }
+
+        /* FOOTER */
+        .flyer-footer {
+            background: #0d1117;
+            padding: 18px 36px;
             display: flex;
             align-items: center;
-            gap: 14px;
+            justify-content: space-between;
         }
 
-        .footer-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .footer-text {
-            flex: 1;
-        }
-
-        .footer-text strong {
-            display: block;
-            font-size: 0.82rem;
+        .footer-store {
+            font-size: 0.9rem;
+            font-weight: 800;
             color: white;
-            font-weight: 800;
         }
 
-        .footer-text span {
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, .7);
-            font-weight: 500;
+        .footer-tagline {
+            font-size: 0.72rem;
+            color: #64748b;
+            margin-top: 2px;
         }
 
-        .footer-badge {
-            background: rgba(255, 255, 255, .15);
-            border: 1px solid rgba(255, 255, 255, .3);
-            color: #fef08a;
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 5px 12px;
+        .footer-chip {
+            background: rgba(220, 38, 38, 0.15);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            color: #fca5a5;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 6px 14px;
             border-radius: 999px;
-            white-space: nowrap;
-        }
-
-        /* ===== PRINT ===== */
-        @media print {
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                color-adjust: exact !important;
-            }
-
-            @page {
-                size: A4 landscape;
-                margin: 0;
-            }
-
-            body {
-                background: white !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                display: block !important;
-            }
-
-            .toolbar,
-            .hint {
-                display: none !important;
-            }
-
-            #poster {
-                width: 297mm !important;
-                height: 210mm !important;
-                min-height: unset !important;
-                max-height: 210mm !important;
-                overflow: hidden !important;
-                box-shadow: none !important;
-                display: flex !important;
-                flex-direction: row !important;
-                page-break-after: avoid !important;
-            }
-
-            /* Left panel — isi penuh tinggi */
-            .left-panel {
-                width: 42% !important;
-                padding: 28px 24px !important;
-                justify-content: center !important;
-                flex-shrink: 0 !important;
-            }
-
-            .store-logo { font-size: 2.6rem !important; }
-            .store-name { font-size: 1.9rem !important; margin-top: 8px !important; }
-            .store-sub { font-size: 0.72rem !important; margin-top: 5px !important; }
-
-            .alert-card {
-                margin-top: 20px !important;
-                padding: 14px 16px !important;
-                border-radius: 14px !important;
-            }
-            .alert-icon { font-size: 1.8rem !important; margin-bottom: 6px !important; }
-            .alert-title { font-size: 0.78rem !important; }
-            .alert-desc { font-size: 0.65rem !important; margin-top: 5px !important; }
-            .dots { margin-top: 18px !important; }
-
-            /* Right panel — stretch + space-between agar steps & footer mengisi tinggi */
-            .right-panel {
-                flex: 1 !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-                padding: 24px 28px 18px !important;
-            }
-
-            .panel-title { font-size: 0.62rem !important; margin-bottom: 10px !important; }
-            .main-heading { font-size: 1.3rem !important; margin-bottom: 16px !important; }
-
-            /* Steps — flex:1 dan tiap baris menengah */
-            .steps {
-                flex: 1 !important;
-                display: flex !important;
-                flex-direction: column !important;
-                gap: 0 !important;
-                justify-content: space-between !important;
-                margin-bottom: 12px !important;
-            }
-
-            .step-row {
-                flex: 1 !important;
-                padding: 10px 14px !important;
-                border-radius: 12px !important;
-                gap: 12px !important;
-                margin-bottom: 0 !important;
-            }
-
-            .snum { width: 32px !important; height: 32px !important; font-size: 0.88rem !important; }
-            .s-emoji { font-size: 1.3rem !important; width: 26px !important; }
-            .s-title { font-size: 0.82rem !important; }
-            .s-desc { font-size: 0.65rem !important; margin-top: 1px !important; line-height: 1.35 !important; }
-
-            /* Footer strip */
-            .footer-strip {
-                padding: 12px 18px !important;
-                border-radius: 12px !important;
-                gap: 12px !important;
-                flex-shrink: 0 !important;
-            }
-            .footer-icon { font-size: 1.4rem !important; }
-            .footer-text strong { font-size: 0.8rem !important; }
-            .footer-text span { font-size: 0.63rem !important; }
-            .footer-badge { font-size: 0.63rem !important; padding: 5px 12px !important; }
         }
 
         /* ===== EDITOR PANEL ===== */
-        @media print { .editor-panel, .editor-panel * { display: none !important; } }
         .editor-panel {
-            width: 297mm;
+            width: 210mm;
             background: white;
             border-radius: 16px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.12);
@@ -464,46 +414,47 @@
         .editor-header {
             background: linear-gradient(135deg, #1e293b, #334155);
             color: white;
-            padding: 13px 20px;
+            padding: 14px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
             user-select: none;
         }
-        .editor-header-title { font-size: 0.88rem; font-weight: 800; }
-        .editor-header-sub { font-size: 0.7rem; opacity: 0.6; margin-top: 2px; }
-        .editor-toggle { font-size: 1rem; transition: transform 0.2s; }
+        .editor-header-title { font-size: 0.9rem; font-weight: 800; letter-spacing: 0.03em; }
+        .editor-header-sub { font-size: 0.72rem; opacity: 0.6; margin-top: 2px; }
+        .editor-toggle-icon { font-size: 1.1rem; transition: transform 0.2s; }
         .editor-body {
-            padding: 18px;
+            padding: 20px;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 14px;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
-        .ed-sec {
+        .editor-section {
             background: #f8fafc;
             border: 1.5px solid #e2e8f0;
             border-radius: 12px;
-            padding: 13px;
+            padding: 14px;
         }
-        .ed-sec.full { grid-column: 1 / -1; }
-        .ed-sec.half { grid-column: span 2; }
-        .ed-title {
-            font-size: 0.68rem;
+        .editor-section.full { grid-column: 1 / -1; }
+        .editor-section-title {
+            font-size: 0.7rem;
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .ed-label {
-            font-size: 0.68rem;
-            font-weight: 600;
-            color: #64748b;
-            margin-bottom: 4px;
-            display: block;
+        .editor-row {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            margin-bottom: 6px;
         }
-        .ed-input {
-            width: 100%;
+        .editor-input {
+            flex: 1;
             padding: 7px 10px;
             border: 1.5px solid #e2e8f0;
             border-radius: 8px;
@@ -513,11 +464,105 @@
             background: white;
             transition: border-color 0.15s;
         }
-        .ed-input:focus { border-color: #ef4444; }
-        /* Logo upload */
-        .logo-area {
+        .editor-input:focus { border-color: #ef4444; }
+        .editor-input.poin-input { width: 64px; flex: none; text-align: center; font-weight: 700; }
+        .editor-del-btn {
+            width: 28px;
+            height: 28px;
+            background: #fee2e2;
+            border: none;
+            border-radius: 7px;
+            color: #dc2626;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.15s;
+        }
+        .editor-del-btn:hover { background: #fca5a5; }
+        .editor-add-btn {
             width: 100%;
-            height: 72px;
+            padding: 7px;
+            background: white;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #64748b;
+            cursor: pointer;
+            margin-top: 4px;
+            transition: all 0.15s;
+            font-family: 'Inter', sans-serif;
+        }
+        .editor-add-btn:hover { border-color: #ef4444; color: #ef4444; background: #fff5f5; }
+        .editor-textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            resize: vertical;
+            min-height: 60px;
+            background: white;
+            transition: border-color 0.15s;
+        }
+        .editor-textarea:focus { border-color: #ef4444; }
+        .editor-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #64748b;
+            margin-bottom: 4px;
+            margin-top: 8px;
+            display: block;
+        }
+        .editor-label:first-child { margin-top: 0; }
+        @media print {
+            .editor-panel { display: none !important; }
+        }
+
+        /* ===== THEME & MOTIF PICKER ===== */
+        .theme-swatches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .theme-swatch {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            border: 3px solid transparent;
+            transition: transform 0.15s, border-color 0.15s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .theme-swatch:hover { transform: scale(1.1); }
+        .theme-swatch.active { border-color: #1e293b; transform: scale(1.08); }
+        .theme-swatch .tick {
+            display: none;
+            position: absolute;
+            inset: 0;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        .theme-swatch.active .tick { display: flex; }
+        .theme-swatch-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #64748b;
+            text-align: center;
+            margin-top: 3px;
+        }
+        /* Logo Upload */
+        .logo-upload-area {
+            width: 100%;
+            height: 76px;
             border: 2px dashed #cbd5e1;
             border-radius: 10px;
             display: flex;
@@ -525,347 +570,672 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            background: white;
             transition: border-color 0.15s, background 0.15s;
-            gap: 3px;
+            background: white;
+            gap: 4px;
             position: relative;
             overflow: hidden;
         }
-        .logo-area:hover { border-color: #ef4444; background: #fff5f5; }
-        .logo-area.has-logo { border-style: solid; border-color: #10b981; background: #f0fdf4; }
-        .logo-area .la-text { font-size: 0.7rem; font-weight: 700; color: #64748b; }
-        .logo-area .la-sub  { font-size: 0.6rem; color: #94a3b8; }
-        .logo-thumb { width: 42px; height: 42px; object-fit: contain; border-radius: 7px; }
-        .logo-rm {
-            position: absolute; top: 3px; right: 3px;
-            width: 18px; height: 18px;
-            background: #ef4444; border: none; border-radius: 50%;
-            color: white; font-size: 0.6rem; font-weight: 900;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
+        .logo-upload-area:hover { border-color: #ef4444; background: #fff5f5; }
+        .logo-upload-area.has-logo { border-style: solid; border-color: #10b981; background: #f0fdf4; }
+        .logo-upload-area .upload-text { font-size: 0.72rem; font-weight: 700; color: #64748b; }
+        .logo-upload-area .upload-sub  { font-size: 0.62rem; color: #94a3b8; }
+        .logo-preview-thumb {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            border-radius: 8px;
         }
-        /* Swatches */
-        .swatches { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-        .swatch {
-            width: 38px; height: 38px; border-radius: 9px; cursor: pointer;
-            border: 3px solid transparent; transition: transform 0.15s, border-color 0.15s;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15); position: relative;
+        .logo-remove-btn {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 20px;
+            height: 20px;
+            background: #ef4444;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 0.65rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            line-height: 1;
         }
-        .swatch:hover { transform: scale(1.12); }
-        .swatch.active { border-color: #1e293b; transform: scale(1.1); }
-        .swatch .tick { display:none; position:absolute; inset:0; align-items:center; justify-content:center; font-size:0.9rem; }
-        .swatch.active .tick { display:flex; }
-        .sw-wrap { display:flex; flex-direction:column; align-items:center; gap:2px; }
-        .sw-label { font-size:0.55rem; font-weight:700; color:#64748b; }
-        /* Motif */
-        .motif-grid { display:flex; flex-wrap:wrap; gap:7px; }
+        .swatch-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .motif-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
         .motif-btn {
-            width:56px; height:44px; border-radius:9px;
-            border: 2.5px solid #e2e8f0; cursor:pointer;
-            position:relative; overflow:hidden;
+            width: 60px;
+            height: 50px;
+            border-radius: 10px;
+            border: 2.5px solid #e2e8f0;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
             transition: border-color 0.15s, transform 0.15s;
             background: #1e3a8a;
         }
-        .motif-btn:hover { transform:scale(1.08); border-color:#94a3b8; }
-        .motif-btn.active { border-color:#1e293b; }
-        .motif-btn .ml { position:absolute; bottom:0; left:0; right:0; background:rgba(0,0,0,0.55); color:white; font-size:0.5rem; font-weight:700; text-align:center; padding:1px 0; }
-        /* Overlay motif on left panel */
-        #lp-motif-overlay {
-            position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0.22;
+        .motif-btn:hover { transform: scale(1.08); border-color: #94a3b8; }
+        .motif-btn.active { border-color: #1e293b; }
+        .motif-btn .motif-label {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.55);
+            color: white;
+            font-size: 0.55rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 2px 0;
         }
-        .left-panel .store-logo,
-        .left-panel .store-name,
-        .left-panel .store-sub,
-        .left-panel .alert-card,
-        .left-panel .dots { position:relative; z-index:1; }
+        #header-motif-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.22;
+        }
+        .flyer-header .store-tagline,
+        .flyer-header .store-name,
+        .flyer-header .promo-badge {
+            position: relative;
+            z-index: 1;
+        }
+        @media print { #header-motif-overlay { opacity: 0.18 !important; } }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-bar, .hint { display: none !important; }
+
+            @page { size: A4 portrait; margin: 0; }
+
+            #flyer {
+                width: 210mm !important;
+                height: 297mm !important;
+                min-height: unset !important;
+                max-height: 297mm !important;
+                overflow: hidden !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                page-break-after: avoid !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            /* Header — sedikit lebih besar agar mengisi atas */
+            .flyer-header { padding: 28px 36px 22px !important; flex-shrink: 0 !important; }
+            .store-name { font-size: 2.2rem !important; }
+            .store-tagline { font-size: 0.88rem !important; margin-top: 5px !important; }
+            .store-sub { font-size: 0.72rem !important; margin-top: 3px !important; }
+            .promo-badge { font-size: 0.85rem !important; padding: 8px 22px !important; margin-top: 14px !important; }
+
+            /* Body — flex:1 + space-between agar section menyebar mengisi sisa halaman */
+            .flyer-body {
+                padding: 20px 36px 16px !important;
+                flex: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+            }
+            .section-title { font-size: 0.65rem !important; margin-bottom: 10px !important; }
+
+            /* Steps */
+            .steps { margin-bottom: 0 !important; }
+            .step-num { width: 38px !important; height: 38px !important; font-size: 1rem !important; }
+            .step-text { font-size: 0.68rem !important; }
+            .steps::before { top: 19px !important; }
+
+            /* Highlight */
+            .highlight-box { padding: 18px 24px !important; border-radius: 16px !important; }
+            .highlight-label { font-size: 0.7rem !important; margin-bottom: 5px !important; }
+            .highlight-main { font-size: 1.25rem !important; }
+            .highlight-sub { font-size: 0.75rem !important; margin-top: 5px !important; }
+
+            /* Features — flex:1 agar bisa mengembang */
+            .features { gap: 10px !important; margin-bottom: 0 !important; }
+            .feature-card { padding: 12px 14px !important; border-radius: 12px !important; gap: 10px !important; align-items: center !important; }
+            .feature-icon { font-size: 1.3rem !important; }
+            .feature-title { font-size: 0.75rem !important; margin-bottom: 2px !important; }
+            .feature-desc { font-size: 0.65rem !important; line-height: 1.35 !important; }
+
+            /* CTA */
+            .cta-box { padding: 16px 20px !important; border-radius: 14px !important; }
+            .cta-title { font-size: 0.95rem !important; margin-bottom: 5px !important; }
+            .cta-sub { font-size: 0.75rem !important; margin-bottom: 10px !important; }
+            .cta-badge { font-size: 0.85rem !important; padding: 10px 24px !important; }
+
+            /* Footer */
+            .flyer-footer { padding: 14px 36px !important; flex-shrink: 0 !important; }
+            .footer-store { font-size: 0.85rem !important; }
+            .footer-tagline { font-size: 0.63rem !important; }
+            .footer-chip { font-size: 0.63rem !important; padding: 5px 12px !important; }
+        }
     </style>
 </head>
 
 <body>
 
     <!-- EDITOR PANEL -->
-    <div class="editor-panel">
+    <div class="editor-panel" id="editorPanel">
         <div class="editor-header" onclick="toggleEditor()">
             <div>
-                <div class="editor-header-title">⚙️ Edit Konten Mading</div>
-                <div class="editor-header-sub">Upload logo, ubah tagline, ganti warna & motif — update otomatis</div>
+                <div class="editor-header-title">⚙️ Edit Konten Flyer</div>
+                <div class="editor-header-sub">Ubah header, poin, hadiah, deskripsi & warna — flyer update otomatis</div>
             </div>
-            <div class="editor-toggle" id="edToggle">▼</div>
+            <div class="editor-toggle-icon" id="editorIcon">▼</div>
         </div>
-        <div id="edBody" class="editor-body">
-
-            <!-- Logo -->
-            <div class="ed-sec">
-                <div class="ed-title" style="color:#7f1d1d">🖼️ Logo Toko</div>
-                <input type="file" id="logo-input" accept="image/*" style="display:none" onchange="handleLogo(this)">
-                <div class="logo-area" id="logo-area" onclick="document.getElementById('logo-input').click()">
-                    <div id="logo-inner">
-                        <div style="text-align:center">
-                            <div style="font-size:1.4rem">📁</div>
-                            <div class="la-text">Klik upload logo</div>
-                            <div class="la-sub">PNG / JPG / SVG</div>
+        <div id="editorBody" class="editor-body">
+            <!-- HEADER -->
+            <div class="editor-section full">
+                <div class="editor-section-title" style="color:#7f1d1d">🖼️ Kepala Flyer (Header)</div>
+                <div style="display:grid;grid-template-columns:160px 1fr 1fr;gap:10px;align-items:end">
+                    <div>
+                        <label class="editor-label" style="margin-top:0">🖼️ Logo Toko (dari file)</label>
+                        <input type="file" id="logo-file-input" accept="image/*" style="display:none" onchange="handleLogoUpload(this)">
+                        <div class="logo-upload-area" id="logo-upload-area" onclick="document.getElementById('logo-file-input').click()">
+                            <div id="logo-upload-inner">
+                                <div style="text-align:center">
+                                    <div style="font-size:1.5rem">📁</div>
+                                    <div class="upload-text">Klik untuk upload logo</div>
+                                    <div class="upload-sub">PNG / JPG / SVG</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="editor-label" style="margin-top:0">Tagline di bawah nama toko</label>
+                        <input class="editor-input" id="hdr-tagline" placeholder="Tagline toko..." oninput="renderFlyer()">
+                    </div>
+                    <div>
+                        <label class="editor-label" style="margin-top:0">Teks badge promosi</label>
+                        <input class="editor-input" id="hdr-badge" placeholder="🎉 Teks badge..." oninput="renderFlyer()">
+                    </div>
+                </div>
+            </div>
+            <div class="editor-section">
+                <div class="editor-section-title" style="color:#b91c1c">🔴 Poin Yang Kamu Dapat</div>
+                <div id="poin-editor-rows"></div>
+                <button class="editor-add-btn" onclick="addPoinRow()">+ Tambah Baris Poin</button>
+            </div>
+            <!-- HADIAH -->
+            <div class="editor-section">
+                <div class="editor-section-title" style="color:#15803d">🟢 Contoh Hadiah Tersedia</div>
+                <div id="hadiah-editor-rows"></div>
+                <button class="editor-add-btn" onclick="addHadiahRow()">+ Tambah Baris Hadiah</button>
+            </div>
+            <!-- FITUR CARDS -->
+            <div class="editor-section full">
+                <div class="editor-section-title" style="color:#1e293b">🃏 Deskripsi Keuntungan Member</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+                    <div>
+                        <label class="editor-label">🆔 QR Code Pribadi</label>
+                        <textarea class="editor-textarea" id="desc-qr" oninput="renderFlyer()"></textarea>
+                    </div>
+                    <div>
+                        <label class="editor-label">⭐ Poin Otomatis</label>
+                        <textarea class="editor-textarea" id="desc-poin" oninput="renderFlyer()"></textarea>
+                    </div>
+                    <div>
+                        <label class="editor-label">🎁 Tukar Hadiah Nyata</label>
+                        <textarea class="editor-textarea" id="desc-tukar" oninput="renderFlyer()"></textarea>
+                    </div>
+                    <div>
+                        <label class="editor-label">📊 Cek Poin Sendiri</label>
+                        <textarea class="editor-textarea" id="desc-cek" oninput="renderFlyer()"></textarea>
+                    </div>
+                    <div>
+                        <label class="editor-label">♾️ Hadiah Tidak Terbatas</label>
+                        <textarea class="editor-textarea" id="desc-tak-terbatas" oninput="renderFlyer()"></textarea>
+                    </div>
+                    <div>
+                        <label class="editor-label">🏆 Member Poin Terbanyak</label>
+                        <textarea class="editor-textarea" id="desc-terbanyak" oninput="renderFlyer()"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- WARNA & MOTIF -->
+            <div class="editor-section full">
+                <div class="editor-section-title" style="color:#1e293b">🎨 Warna & Motif Header</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                    <div>
+                        <label class="editor-label" style="margin-top:0">🎨 Pilih Tema Warna</label>
+                        <div class="theme-swatches" id="theme-swatches"></div>
+                        <div style="display:flex;gap:8px;align-items:center;margin-top:4px">
+                            <label class="editor-label" style="margin:0;white-space:nowrap">Custom warna 1:</label>
+                            <input type="color" id="custom-color1" value="#7f1d1d" oninput="applyCustomColors()" style="width:38px;height:32px;border-radius:8px;border:1.5px solid #e2e8f0;cursor:pointer;padding:2px">
+                            <label class="editor-label" style="margin:0;white-space:nowrap">warna 2:</label>
+                            <input type="color" id="custom-color2" value="#ef4444" oninput="applyCustomColors()" style="width:38px;height:32px;border-radius:8px;border:1.5px solid #e2e8f0;cursor:pointer;padding:2px">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="editor-label" style="margin-top:0">✨ Pilih Motif/Pattern</label>
+                        <div class="motif-grid" id="motif-grid"></div>
+                        <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+                            <label class="editor-label" style="margin:0">Kekuatan motif:</label>
+                            <input type="range" min="0" max="50" value="22" id="motif-opacity" oninput="updateMotifOpacity(this.value)" style="flex:1">
+                            <span id="motif-opacity-val" style="font-size:0.72rem;font-weight:700;color:#64748b;width:30px">22%</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Tagline -->
-            <div class="ed-sec half">
-                <div class="ed-title" style="color:#1e293b">📝 Teks Panel Kiri</div>
-                <label class="ed-label">Tagline (di bawah nama toko)</label>
-                <input class="ed-input" id="ed-tagline" oninput="applyEdits()" placeholder="Tagline toko...">
-                <label class="ed-label" style="margin-top:8px">Isi alert card (tunjukkan QR Code, dst)</label>
-                <input class="ed-input" id="ed-alert-title" oninput="applyEdits()" placeholder="Judul alert...">
-                <label class="ed-label" style="margin-top:6px">Sub-teks alert</label>
-                <input class="ed-input" id="ed-alert-desc" oninput="applyEdits()" placeholder="Deskripsi alert...">
-            </div>
-
-            <!-- Warna -->
-            <div class="ed-sec">
-                <div class="ed-title" style="color:#1e293b">🎨 Tema Warna</div>
-                <div class="swatches" id="swatches"></div>
-                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
-                    <label class="ed-label" style="margin:0;white-space:nowrap">Custom:</label>
-                    <input type="color" id="cc1" value="#7f1d1d" oninput="applyCustomColor()" style="width:34px;height:28px;border-radius:7px;border:1.5px solid #e2e8f0;cursor:pointer;padding:2px">
-                    <input type="color" id="cc2" value="#ef4444" oninput="applyCustomColor()" style="width:34px;height:28px;border-radius:7px;border:1.5px solid #e2e8f0;cursor:pointer;padding:2px">
-                </div>
-            </div>
-
-            <!-- Motif -->
-            <div class="ed-sec">
-                <div class="ed-title" style="color:#1e293b">✨ Motif/Pattern</div>
-                <div class="motif-grid" id="motif-grid"></div>
-                <div style="display:flex;align-items:center;gap:6px;margin-top:8px">
-                    <label class="ed-label" style="margin:0;white-space:nowrap">Kekuatan:</label>
-                    <input type="range" min="0" max="50" value="22" id="motif-opacity" oninput="updateOpacity(this.value)" style="flex:1">
-                    <span id="op-val" style="font-size:0.7rem;font-weight:700;color:#64748b;width:28px">22%</span>
-                </div>
-            </div>
-
         </div>
     </div>
-
-    <!-- Toolbar -->
-    <div class="toolbar">
-        <button class="btn btn-print" onclick="window.print()">🖨️ Cetak (A4 Landscape)</button>
-        <button class="btn btn-pdf" onclick="savePDF()">💾 Simpan PDF</button>
-        <button id="btnPng" class="btn btn-png" onclick="downloadImg('png')">🖼️ Download PNG</button>
-        <button id="btnJpg" class="btn btn-jpg" onclick="downloadImg('jpg')">📸 Download JPG</button>
+    <div class="print-bar">
+        <button class="btn-print" onclick="window.print()">🖨️ Cetak Sekarang (A4)</button>
+        <button class="btn-save" onclick="savePDF()">💾 Simpan sebagai PDF</button>
+        <button id="btnPng" class="btn-img btn-png" onclick="downloadImg('png')">🖼️ Download PNG</button>
+        <button id="btnJpg" class="btn-img btn-jpg" onclick="downloadImg('jpg')">📸 Download JPG</button>
     </div>
-    <p class="hint">Ukuran cetak: A4 Landscape | Cocok untuk mading / pajangan di atas etalase konter</p>
+    <p class="hint">* PDF: pilih "Save as PDF" di printer dialog &nbsp;|&nbsp; PNG/JPG: hasil gambar resolusi tinggi
+        siap WA/cetak</p>
 
-    <!-- POSTER -->
-    <div id="poster">
+    <!-- FLYER -->
+    <div id="flyer">
 
-        <!-- LEFT -->
-        <div class="left-panel" id="left-panel">
-            <div id="lp-motif-overlay"></div>
-            <div class="store-logo" style="position:relative;z-index:1;" id="mading-logo-el">
-                <img id="mading-logo-img" src="" alt="" style="display:none;width:52px;height:52px;object-fit:contain;border-radius:10px;background:rgba(255,255,255,0.9);padding:4px">
-                <span id="mading-logo-emoji">📱</span>
+        <!-- HEADER -->
+        <div class="flyer-header" id="flyer-header">
+            <div id="header-motif-overlay"></div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:14px;position:relative;z-index:1;margin-bottom:4px">
+                <div style="width:56px;height:56px;background:rgba(255,255,255,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.3);font-size:2rem;flex-shrink:0;overflow:hidden" id="flyer-hdr-icon">
+                        <img id="flyer-logo-img" src="" alt="" style="display:none;width:100%;height:100%;object-fit:contain;border-radius:12px">
+                        <span id="flyer-logo-emoji">📱</span>
+                    </div>
+                <div class="store-name">FALINK</div>
             </div>
-            <div class="store-name">FALINK</div>
-            <div class="store-sub" id="mading-tagline-el">Transfer &amp; Tarik Tunai · Paket Data · Pembayaran BPJS · Top Up E-Wallet</div>
-
-            <div class="alert-card">
-                <span class="alert-icon">⭐</span>
-                <div class="alert-title" id="mading-alert-title">⚠️ Tunjukkan QR Code<br>Setiap Bertransaksi!</div>
-                <div class="alert-desc" id="mading-alert-desc">
-                    Scan QR tiap transaksi agar<br>
-                    poin Anda <strong style="color:#fef08a;">langsung masuk otomatis.</strong><br>
-                    Kumpulkan Poin — Tukar Hadiah Seru!
-                </div>
+            <div class="store-tagline" id="flyer-hdr-tagline">Transfer &amp; Tarik Tunai · Paket Data · Pembayaran BPJS · Top Up E-Wallet
             </div>
-
-            <div class="dots">
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot active"></div>
-                <div class="dot"></div>
-                <div class="dot active"></div>
-            </div>
+            <div class="promo-badge" id="flyer-hdr-badge">🎉 KUMPULKAN POIN — TUKAR HADIAH GRATIS!</div>
         </div>
 
-        <!-- RIGHT -->
-        <div class="right-panel">
-            <div class="panel-title">⭐ Program Poin Member Digital — Kumpulkan Poin, Tukar Hadiah!</div>
-            <div class="main-heading">Cara Kerja <span>Kartu Member</span><br>FALINK</div>
+        <!-- BODY -->
+        <div class="flyer-body">
 
+            <!-- CARA KERJA -->
+            <div class="section-title">📌 Cara Kerja Kartu Member FALINK</div>
             <div class="steps">
-                <div class="step-row">
-                    <div class="snum">1</div>
-                    <div class="s-emoji">📝</div>
-                    <div class="s-info">
-                        <div class="s-title">Daftar Member — GRATIS!</div>
-                        <div class="s-desc">Minta kasir untuk mendaftarkan nama & nomor HP Anda. Proses cepat kurang
-                            dari 1 menit.</div>
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-text">Daftar<br>Member<br>(Gratis!)</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-text">Terima<br>QR Code<br>Unik</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-text">Tunjukkan<br>QR Tiap<br>Transaksi</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-text">Poin<br>Otomatis<br>Bertambah</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div class="step-text">Tukar Poin<br>Dapat<br>Hadiah!</div>
+                </div>
+            </div>
+
+            <!-- HIGHLIGHT BOX -->
+            <div class="highlight-box">
+                <div class="highlight-label">⭐ Poin Masuk Otomatis Setiap Kali Kamu Transaksi!</div>
+                <div class="highlight-main">🎁 Kumpulkan Poin → Tukar Hadiah Pilihan</div>
+                <div class="highlight-sub">Scan QR tiap transaksi, poin langsung masuk ke akunmu. Makin sering belanja, makin cepat dapat hadiah seru!</div>
+            </div>
+
+            <!-- TABEL POIN -->
+            <div class="section-title">➱ Poin Per Transaksi & Contoh Hadiah</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px">
+                <div style="background:#fff1f2;border:1.5px solid #fca5a5;border-radius:14px;padding:12px 14px">
+                    <div style="font-size:0.65rem;font-weight:800;color:#b91c1c;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px">➱ Poin Yang Kamu Dapat</div>
+                    <div style="display:flex;flex-direction:column;gap:5px" id="flyer-poin-rows"></div>
+                </div>
+                <div style="background:#f0fdf4;border:1.5px solid #86efac;border-radius:14px;padding:12px 14px">
+                    <div style="font-size:0.65rem;font-weight:800;color:#15803d;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px">➱ Contoh Hadiah Tersedia</div>
+                    <div style="display:flex;flex-direction:column;gap:5px" id="flyer-hadiah-rows"></div>
+                </div>
+            </div>
+
+            <!-- FEATURES -->
+            <div class="section-title">⭐ Keuntungan Jadi Member</div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🆔</div>
+                    <div>
+                        <div class="feature-title">QR Code Pribadi</div>
+                        <div class="feature-desc" id="flyer-desc-qr"></div>
                     </div>
                 </div>
-                <div class="step-row">
-                    <div class="snum">2</div>
-                    <div class="s-emoji">🪪</div>
-                    <div class="s-info">
-                        <div class="s-title">Terima Kartu Member + QR Code Unik</div>
-                        <div class="s-desc">Anda akan mendapat kartu digital dengan QR Code pribadi yang unik dan tidak
-                            bisa dipalsukan.</div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <div>
+                        <div class="feature-title">Poin Otomatis</div>
+                        <div class="feature-desc" id="flyer-desc-poin"></div>
                     </div>
                 </div>
-                <div class="step-row">
-                    <div class="snum">3</div>
-                    <div class="s-emoji">📲</div>
-                    <div class="s-info">
-                        <div class="s-title">Tunjukkan QR Code Setiap Bertransaksi</div>
-                        <div class="s-desc">Setiap kali belanja di sini, tunjukkan QR Code Anda ke kasir untuk discan.
-                            Jangan sampai lupa!</div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎁</div>
+                    <div>
+                        <div class="feature-title">Tukar Hadiah Nyata</div>
+                        <div class="feature-desc" id="flyer-desc-tukar"></div>
                     </div>
                 </div>
-                <div class="step-row">
-                    <div class="snum">4</div>
-                    <div class="s-emoji">⭐</div>
-                    <div class="s-info">
-                        <div class="s-title">Poin Otomatis Bertambah!</div>
-                        <div class="s-desc">Setiap scan berhasil, poin langsung masuk ke akun Anda. Makin sering transaksi, makin cepat poin terkumpul — makin besar hadiahnya!</div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div>
+                        <div class="feature-title">Cek Poin Sendiri</div>
+                        <div class="feature-desc" id="flyer-desc-cek"></div>
                     </div>
                 </div>
-                <div class="step-row">
-                    <div class="snum">5</div>
-                    <div class="s-emoji">🎁</div>
-                    <div class="s-info">
-                        <div class="s-title">Tukar Poin Dapat Hadiah!</div>
-                        <div class="s-desc">Poin yang terkumpul bisa ditukar hadiah pilihan: sembako, rokok, voucher & lainnya. Tanya kasir untuk info hadiah tersedia!</div>
+                <div class="feature-card">
+                    <div class="feature-icon">♾️</div>
+                    <div>
+                        <div class="feature-title">Hadiah Tidak Terbatas</div>
+                        <div class="feature-desc" id="flyer-desc-tak-terbatas"></div>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <div>
+                        <div class="feature-title">Member Poin Terbanyak</div>
+                        <div class="feature-desc" id="flyer-desc-terbanyak"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Footer -->
-            <div class="footer-strip">
-                <div class="footer-icon">�</div>
-                <div class="footer-text">
-                    <strong>Makin sering transaksi → Makin banyak poin → Makin besar hadiahnya!</strong>
-                    <span>Pantau total poin & riwayat transaksi kapan saja lewat portal member digital.</span>
-                </div>
-                <div class="footer-badge">⭐ Daftar Gratis!</div>
+            <!-- CTA -->
+            <div class="cta-box">
+                <div class="cta-title">🚀 Yuk Jadi Member FALINK!</div>
+                <div class="cta-sub">Daftar gratis, cukup Nama & No. HP. Proses kurang dari 1 menit — langsung dapat QR Code & mulai kumpulkan poin!</div>
+                <div class="cta-badge">📲 Daftar Sekarang — GRATIS & LANGSUNG AKTIF!</div>
             </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="flyer-footer">
+            <div>
+                <div class="footer-store">FALINK</div>
+                <div class="footer-tagline">Transfer &amp; Tarik Tunai · Paket Data · Pembayaran BPJS · Top Up E-Wallet</div>
+            </div>
+            <div class="footer-chip">Member Program 2026</div>
         </div>
 
     </div>
 
     <script>
         // ===================================================
-        //  TOGGLE EDITOR
+        //  DATA — ubah di sini atau lewat panel editor
         // ===================================================
-        var edOpen = true;
-        function toggleEditor() {
-            edOpen = !edOpen;
-            document.getElementById('edBody').style.display = edOpen ? 'grid' : 'none';
-            document.getElementById('edToggle').style.transform = edOpen ? 'rotate(0deg)' : 'rotate(-90deg)';
+        var dataPoin = [
+            { nama: 'Pulsa / Paket Data', poin: '2' },
+            { nama: 'Top Up DANA / OVO', poin: '5' },
+            { nama: 'Aksesori HP (ACC)', poin: '5' },
+            { nama: 'Beli HP', poin: '100' }
+        ];
+        var dataHadiah = [
+            { nama: 'Headset', poin: '250' },
+            { nama: 'Minyak Goreng 2L', poin: '500' },
+            { nama: 'Beras 10 Kg', poin: '750' }
+        ];
+        var dataDesc = {
+            qr: 'Punya QR Code unik sendiri, tinggal scan tiap transaksi — simpan di HP, tanpa kartu fisik!',
+            poin: 'Poin langsung masuk ke akun setiap transaksi berhasil — tidak perlu isi manual!',
+            tukar: 'Poin ditukar hadiah pilihan: sembako, headset, voucher — langsung ambil di kasir!',
+            cek: 'Pantau total poin & riwayat transaksi lewat portal member kapan saja dan di mana saja.',
+            'tak-terbatas': 'Tidak ada batas stok hadiah — asal poin cukup, hadiah bisa langsung ditukar!',
+            terbanyak: 'Makin sering transaksi, makin banyak poin, makin besar hadiah yang bisa kamu ambil!'
+        };
+
+        // ===================================================
+        //  RENDER — update tampilan flyer dari data
+        // ===================================================
+        function renderFlyer() {
+            // Header tagline & badge (logo handled by handleLogoUpload)
+            var tagline = document.getElementById('hdr-tagline');
+            var badge = document.getElementById('hdr-badge');
+            if (tagline) document.getElementById('flyer-hdr-tagline').textContent = tagline.value || 'Transfer &amp; Tarik Tunai · Paket Data · Pembayaran BPJS · Top Up E-Wallet';
+            if (badge) document.getElementById('flyer-hdr-badge').textContent = badge.value || '🎉 KUMPULKAN POIN — TUKAR HADIAH GRATIS!';
+
+            // Poin rows
+            var poinHTML = '';
+            dataPoin.forEach(function(item) {
+                poinHTML += '<div style="display:flex;justify-content:space-between;font-size:0.72rem;color:#1e293b">'
+                    + '<span>\u27b1 ' + item.nama + '</span>'
+                    + '<span style="font-weight:800;color:#b91c1c">+' + item.poin + ' \u2b50</span></div>';
+            });
+            document.getElementById('flyer-poin-rows').innerHTML = poinHTML;
+
+            // Hadiah rows
+            var hadiahHTML = '';
+            dataHadiah.forEach(function(item) {
+                hadiahHTML += '<div style="display:flex;justify-content:space-between;font-size:0.72rem;color:#1e293b">'
+                    + '<span>\u27b1 ' + item.nama + '</span>'
+                    + '<span style="font-weight:800;color:#15803d">' + item.poin + ' \u2b50</span></div>';
+            });
+            hadiahHTML += '<div style="font-size:0.65rem;color:#64748b;margin-top:4px">dan hadiah lainnya...</div>';
+            document.getElementById('flyer-hadiah-rows').innerHTML = hadiahHTML;
+
+            // Desc cards — baca dari textarea
+            var keys = ['qr','poin','tukar','cek','tak-terbatas','terbanyak'];
+            keys.forEach(function(k) {
+                var ta = document.getElementById('desc-' + k);
+                var el = document.getElementById('flyer-desc-' + k);
+                if (ta && el) el.textContent = ta.value;
+            });
         }
 
         // ===================================================
-        //  APPLY EDITS (tagline + alert)
+        //  BUILD EDITOR — render input rows dari data
         // ===================================================
-        function applyEdits() {
-            var tagline = document.getElementById('ed-tagline').value;
-            var alertTitle = document.getElementById('ed-alert-title').value;
-            var alertDesc = document.getElementById('ed-alert-desc').value;
-            if (tagline !== undefined) document.getElementById('mading-tagline-el').textContent = tagline || 'Transfer &amp; Tarik Tunai · Paket Data · Pembayaran BPJS · Top Up E-Wallet';
-            if (alertTitle) document.getElementById('mading-alert-title').innerHTML = alertTitle;
-            if (alertDesc) document.getElementById('mading-alert-desc').innerHTML = alertDesc;
+        function buildEditorRows() {
+            // Populate header inputs
+            document.getElementById('hdr-tagline').value = 'Transfer &amp; Tarik Tunai · Paket Data · Pembayaran BPJS · Top Up E-Wallet';
+            document.getElementById('hdr-badge').value = '🎉 KUMPULKAN POIN — TUKAR HADIAH GRATIS!';
+
+            renderPoinEditorRows();
+            renderHadiahEditorRows();
+            // Fill desc textareas
+            var keys = ['qr','poin','tukar','cek','tak-terbatas','terbanyak'];
+            keys.forEach(function(k) {
+                var ta = document.getElementById('desc-' + k);
+                if (ta) ta.value = dataDesc[k] || '';
+            });
+        }
+
+        function renderPoinEditorRows() {
+            var container = document.getElementById('poin-editor-rows');
+            container.innerHTML = '';
+            dataPoin.forEach(function(item, idx) {
+                var row = document.createElement('div');
+                row.className = 'editor-row';
+                row.innerHTML =
+                    '<input class="editor-input" placeholder="Nama item" value="' + escHtml(item.nama) + '" oninput="dataPoin[' + idx + '].nama=this.value;renderFlyer()">'
+                    + '<input class="editor-input poin-input" placeholder="Poin" value="' + escHtml(item.poin) + '" oninput="dataPoin[' + idx + '].poin=this.value;renderFlyer()">'
+                    + '<button class="editor-del-btn" onclick="deletePoinRow(' + idx + ')">🗑</button>';
+                container.appendChild(row);
+            });
+        }
+
+        function renderHadiahEditorRows() {
+            var container = document.getElementById('hadiah-editor-rows');
+            container.innerHTML = '';
+            dataHadiah.forEach(function(item, idx) {
+                var row = document.createElement('div');
+                row.className = 'editor-row';
+                row.innerHTML =
+                    '<input class="editor-input" placeholder="Nama hadiah" value="' + escHtml(item.nama) + '" oninput="dataHadiah[' + idx + '].nama=this.value;renderFlyer()">'
+                    + '<input class="editor-input poin-input" placeholder="Poin" value="' + escHtml(item.poin) + '" oninput="dataHadiah[' + idx + '].poin=this.value;renderFlyer()">'
+                    + '<button class="editor-del-btn" onclick="deleteHadiahRow(' + idx + ')">🗑</button>';
+                container.appendChild(row);
+            });
+        }
+
+        function addPoinRow() {
+            dataPoin.push({ nama: '', poin: '' });
+            renderPoinEditorRows();
+            renderFlyer();
+        }
+        function deletePoinRow(idx) {
+            dataPoin.splice(idx, 1);
+            renderPoinEditorRows();
+            renderFlyer();
+        }
+        function addHadiahRow() {
+            dataHadiah.push({ nama: '', poin: '' });
+            renderHadiahEditorRows();
+            renderFlyer();
+        }
+        function deleteHadiahRow(idx) {
+            dataHadiah.splice(idx, 1);
+            renderHadiahEditorRows();
+            renderFlyer();
         }
 
         // ===================================================
         //  LOGO UPLOAD
         // ===================================================
-        function handleLogo(input) {
+        var uploadedLogoDataUrl = null;
+
+        function handleLogoUpload(input) {
             var file = input.files[0];
             if (!file) return;
             var reader = new FileReader();
             reader.onload = function(e) {
-                var src = e.target.result;
-                var img = document.getElementById('mading-logo-img');
-                var emoji = document.getElementById('mading-logo-emoji');
-                img.src = src; img.style.display = 'block'; emoji.style.display = 'none';
-                var area = document.getElementById('logo-area');
+                uploadedLogoDataUrl = e.target.result;
+                // Update flyer
+                var img = document.getElementById('flyer-logo-img');
+                var emoji = document.getElementById('flyer-logo-emoji');
+                img.src = uploadedLogoDataUrl;
+                img.style.display = 'block';
+                emoji.style.display = 'none';
+                document.getElementById('flyer-hdr-icon').style.background = 'rgba(255,255,255,0.95)';
+                // Update upload area preview
+                var area = document.getElementById('logo-upload-area');
                 area.classList.add('has-logo');
-                document.getElementById('logo-inner').innerHTML =
-                    '<img src="' + src + '" class="logo-thumb" alt="logo">'
-                    + '<button class="logo-rm" onclick="removeLogo(event)">✕</button>'
-                    + '<div class="la-text" style="font-size:0.6rem;color:#059669">Logo terpasang ✔</div>';
+                document.getElementById('logo-upload-inner').innerHTML =
+                    '<img src="' + uploadedLogoDataUrl + '" class="logo-preview-thumb" alt="logo">'
+                    + '<button class="logo-remove-btn" onclick="removeLogo(event)" title="Hapus logo">✕</button>'
+                    + '<div class="upload-text" style="font-size:0.62rem;color:#059669">Logo terpasang ✔</div>';
             };
             reader.readAsDataURL(file);
         }
+
         function removeLogo(e) {
             e.stopPropagation();
-            var img = document.getElementById('mading-logo-img');
-            var emoji = document.getElementById('mading-logo-emoji');
-            img.src = ''; img.style.display = 'none'; emoji.style.display = 'inline';
-            document.getElementById('logo-area').classList.remove('has-logo');
-            document.getElementById('logo-inner').innerHTML =
-                '<div style="text-align:center"><div style="font-size:1.4rem">📁</div>'
-                + '<div class="la-text">Klik upload logo</div><div class="la-sub">PNG / JPG / SVG</div></div>';
-            document.getElementById('logo-input').value = '';
+            uploadedLogoDataUrl = null;
+            var img = document.getElementById('flyer-logo-img');
+            var emoji = document.getElementById('flyer-logo-emoji');
+            img.src = ''; img.style.display = 'none';
+            emoji.style.display = 'inline';
+            document.getElementById('flyer-hdr-icon').style.background = 'rgba(255,255,255,0.2)';
+            var area = document.getElementById('logo-upload-area');
+            area.classList.remove('has-logo');
+            document.getElementById('logo-upload-inner').innerHTML =
+                '<div style="text-align:center">'
+                + '<div style="font-size:1.5rem">📁</div>'
+                + '<div class="upload-text">Klik untuk upload logo</div>'
+                + '<div class="upload-sub">PNG / JPG / SVG</div>'
+                + '</div>';
+            document.getElementById('logo-file-input').value = '';
         }
 
         // ===================================================
         //  COLOR THEMES
         // ===================================================
         var colorThemes = [
-            { key:'merah',  label:'Merah',   c1:'#7f1d1d', c2:'#ef4444' },
-            { key:'oranye', label:'Oranye',  c1:'#7c2d12', c2:'#f97316' },
-            { key:'kuning', label:'Kuning',  c1:'#713f12', c2:'#eab308' },
-            { key:'hijau',  label:'Hijau',   c1:'#14532d', c2:'#22c55e' },
-            { key:'teal',   label:'Teal',    c1:'#134e4a', c2:'#14b8a6' },
-            { key:'biru',   label:'Biru',    c1:'#1e3a8a', c2:'#3b82f6' },
-            { key:'ungu',   label:'Ungu',    c1:'#4c1d95', c2:'#8b5cf6' },
-            { key:'pink',   label:'Pink',    c1:'#831843', c2:'#ec4899' },
-            { key:'gelap',  label:'Elegan',  c1:'#0f172a', c2:'#334155' },
-            { key:'emas',   label:'Emas',    c1:'#451a03', c2:'#d97706' }
+            { key:'merah',   label:'Merah',    c1:'#7f1d1d', c2:'#ef4444' },
+            { key:'oranye',  label:'Oranye',   c1:'#7c2d12', c2:'#f97316' },
+            { key:'kuning',  label:'Kuning',   c1:'#713f12', c2:'#eab308' },
+            { key:'hijau',   label:'Hijau',    c1:'#14532d', c2:'#22c55e' },
+            { key:'teal',    label:'Teal',     c1:'#134e4a', c2:'#14b8a6' },
+            { key:'biru',    label:'Biru',     c1:'#1e3a8a', c2:'#3b82f6' },
+            { key:'ungu',    label:'Ungu',     c1:'#4c1d95', c2:'#8b5cf6' },
+            { key:'pink',    label:'Pink',     c1:'#831843', c2:'#ec4899' },
+            { key:'gelap',   label:'Elegan',   c1:'#0f172a', c2:'#334155' },
+            { key:'emas',    label:'Emas',     c1:'#451a03', c2:'#d97706' }
         ];
+        var activeTheme = { c1: '#7f1d1d', c2: '#ef4444' };
+        var activeMotif = 'polos';
+        var motifOpacity = 0.22;
 
         function buildSwatches() {
-            var container = document.getElementById('swatches');
+            var container = document.getElementById('theme-swatches');
             container.innerHTML = '';
             colorThemes.forEach(function(t) {
-                var wrap = document.createElement('div'); wrap.className = 'sw-wrap';
+                var wrap = document.createElement('div');
+                wrap.className = 'swatch-wrap';
                 var btn = document.createElement('div');
-                btn.className = 'swatch' + (t.key === 'merah' ? ' active' : '');
+                btn.className = 'theme-swatch' + (t.key === 'merah' ? ' active' : '');
                 btn.style.background = 'linear-gradient(135deg,' + t.c1 + ',' + t.c2 + ')';
-                btn.id = 'sw-' + t.key;
+                btn.id = 'swatch-' + t.key;
                 btn.innerHTML = '<div class="tick">✔️</div>';
-                btn.onclick = (function(th) { return function() { applyTheme(th.c1, th.c2, th.key); }; })(t);
-                var lbl = document.createElement('div'); lbl.className = 'sw-label'; lbl.textContent = t.label;
-                wrap.appendChild(btn); wrap.appendChild(lbl);
+                btn.onclick = (function(theme) { return function() { applyTheme(theme.c1, theme.c2, theme.key); }; })(t);
+                var lbl = document.createElement('div');
+                lbl.className = 'theme-swatch-label';
+                lbl.textContent = t.label;
+                wrap.appendChild(btn);
+                wrap.appendChild(lbl);
                 container.appendChild(wrap);
             });
         }
 
         function applyTheme(c1, c2, key) {
-            document.querySelectorAll('.swatch').forEach(function(el) { el.classList.remove('active'); });
-            if (key) { var sw = document.getElementById('sw-' + key); if (sw) sw.classList.add('active'); }
-            document.getElementById('cc1').value = c1;
-            document.getElementById('cc2').value = c2;
-            injectTheme(c1, c2);
+            activeTheme = { c1: c1, c2: c2 };
+            document.querySelectorAll('.theme-swatch').forEach(function(el) { el.classList.remove('active'); });
+            if (key) {
+                var sw = document.getElementById('swatch-' + key);
+                if (sw) sw.classList.add('active');
+                document.getElementById('custom-color1').value = c1;
+                document.getElementById('custom-color2').value = c2;
+            }
+            injectThemeStyle(c1, c2);
         }
-        function applyCustomColor() {
-            var c1 = document.getElementById('cc1').value;
-            var c2 = document.getElementById('cc2').value;
-            document.querySelectorAll('.swatch').forEach(function(el) { el.classList.remove('active'); });
-            injectTheme(c1, c2);
+
+        function applyCustomColors() {
+            var c1 = document.getElementById('custom-color1').value;
+            var c2 = document.getElementById('custom-color2').value;
+            document.querySelectorAll('.theme-swatch').forEach(function(el) { el.classList.remove('active'); });
+            applyTheme(c1, c2, null);
         }
-        function injectTheme(c1, c2) {
-            var st = document.getElementById('theme-tag');
-            if (!st) { st = document.createElement('style'); st.id = 'theme-tag'; document.head.appendChild(st); }
-            st.textContent = [
-                '#left-panel { background: linear-gradient(160deg,' + c1 + ' 0%,' + c2 + ' 60%,' + c2 + 'cc 100%) !important; }',
-                '.panel-title { color: ' + c2 + ' !important; }',
-                '.main-heading span { color: ' + c2 + ' !important; }',
-                '.snum { background: linear-gradient(135deg,' + c2 + ',' + c1 + ') !important; }',
-                '.footer-strip { background: linear-gradient(135deg,' + c1 + ',' + c2 + ') !important; }'
+
+        function injectThemeStyle(c1, c2) {
+            var mid = c2; // middle tone = c2
+            var style = document.getElementById('theme-style-tag');
+            if (!style) { style = document.createElement('style'); style.id = 'theme-style-tag'; document.head.appendChild(style); }
+            style.textContent = [
+                '#flyer-header { background: linear-gradient(135deg,' + c1 + ' 0%,' + mid + ' 50%,' + c2 + ' 100%) !important; }',
+                '.highlight-box { background: linear-gradient(135deg,' + c1 + ',' + c2 + ') !important; }',
+                '.step-num { background: linear-gradient(135deg,' + c2 + ',' + c1 + ') !important; box-shadow: 0 4px 14px ' + c2 + '55 !important; }',
+                '.steps::before { background: linear-gradient(90deg,' + c2 + ',' + c1 + ') !important; }',
+                '.cta-badge { background: linear-gradient(135deg,' + c2 + ',' + c1 + ') !important; box-shadow: 0 4px 16px ' + c2 + '66 !important; }',
+                '.section-title { color: ' + c2 + ' !important; }',
+                '.feature-card { background: linear-gradient(135deg,' + c2 + '0d,' + c2 + '18) !important; border-color: ' + c2 + '44 !important; }',
+                '.flyer-header .promo-badge { background: rgba(255,255,255,0.15) !important; }',
+                '#flyer-poin-rows span[style*="b91c1c"] { color: ' + c1 + ' !important; }'
             ].join('\n');
         }
 
         // ===================================================
-        //  MOTIF
+        //  MOTIF PATTERNS
         // ===================================================
         var motifs = [
             { key:'polos',    label:'Polos',    bg:'' },
@@ -875,62 +1245,90 @@
             { key:'grid',     label:'Grid',     bg:'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', size:'20px 20px' },
             { key:'zigzag',   label:'Zigzag',   bg:'linear-gradient(135deg,#fff 25%,transparent 25%) -10px 0, linear-gradient(225deg,#fff 25%,transparent 25%) -10px 0, linear-gradient(315deg,#fff 25%,transparent 25%), linear-gradient(45deg,#fff 25%,transparent 25%)', size:'20px 20px' },
             { key:'wave',     label:'Gelombang',bg:'repeating-linear-gradient(-45deg,transparent,transparent 5px,#fff 5px,#fff 6px)', size:'' },
-            { key:'cross',    label:'Silang',   bg:'linear-gradient(#fff 2px, transparent 2px), linear-gradient(90deg, #fff 2px, transparent 2px)', size:'50px 50px' }
+            { key:'cross',    label:'Silang',   bg:'linear-gradient(#fff 2px, transparent 2px), linear-gradient(90deg, #fff 2px, transparent 2px), linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px)', size:'50px 50px, 50px 50px, 10px 10px, 10px 10px' },
+            { key:'hex',      label:'Sisik',    bg:'radial-gradient(circle at 0% 50%, transparent 20%, #fff 21%, #fff 34%, transparent 35%), radial-gradient(circle at 100% 50%, transparent 20%, #fff 21%, #fff 34%, transparent 35%)', size:'60px 30px' }
         ];
+
         function buildMotifGrid() {
-            var c = document.getElementById('motif-grid'); c.innerHTML = '';
+            var container = document.getElementById('motif-grid');
+            container.innerHTML = '';
             motifs.forEach(function(m) {
                 var btn = document.createElement('div');
                 btn.className = 'motif-btn' + (m.key === 'polos' ? ' active' : '');
-                btn.id = 'mb-' + m.key;
+                btn.id = 'motif-btn-' + m.key;
                 btn.style.background = 'linear-gradient(135deg,#1e3a8a,#3b82f6)';
-                if (m.bg) { btn.style.backgroundImage = m.bg; if (m.size) btn.style.backgroundSize = m.size; }
-                btn.innerHTML = '<div class="ml">' + m.label + '</div>';
-                btn.onclick = (function(mo) { return function() { applyMotif(mo.key); }; })(m);
-                c.appendChild(btn);
+                if (m.bg) {
+                    btn.style.backgroundImage = m.bg;
+                    if (m.size) btn.style.backgroundSize = m.size;
+                }
+                btn.innerHTML = '<div class="motif-label">' + m.label + '</div>';
+                btn.onclick = (function(motif) { return function() { applyMotif(motif.key); }; })(m);
+                container.appendChild(btn);
             });
         }
+
         function applyMotif(key) {
+            activeMotif = key;
             document.querySelectorAll('.motif-btn').forEach(function(el) { el.classList.remove('active'); });
-            var btn = document.getElementById('mb-' + key); if (btn) btn.classList.add('active');
-            var ov = document.getElementById('lp-motif-overlay');
+            var btn = document.getElementById('motif-btn-' + key);
+            if (btn) btn.classList.add('active');
+            var overlay = document.getElementById('header-motif-overlay');
             var m = motifs.find(function(x) { return x.key === key; });
-            if (!m || !m.bg) { ov.style.backgroundImage = 'none'; }
-            else { ov.style.backgroundImage = m.bg; ov.style.backgroundSize = m.size || ''; }
+            if (!m || !m.bg) {
+                overlay.style.backgroundImage = 'none';
+            } else {
+                overlay.style.backgroundImage = m.bg;
+                if (m.size) overlay.style.backgroundSize = m.size;
+                else overlay.style.backgroundSize = '';
+            }
         }
-        function updateOpacity(val) {
-            document.getElementById('op-val').textContent = val + '%';
-            document.getElementById('lp-motif-overlay').style.opacity = val / 100;
+
+        function updateMotifOpacity(val) {
+            motifOpacity = val / 100;
+            document.getElementById('motif-opacity-val').textContent = val + '%';
+            document.getElementById('header-motif-overlay').style.opacity = motifOpacity;
+        }
+
+        function escHtml(s) {
+            return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
         }
 
         // ===================================================
-        //  INIT
+        //  TOGGLE EDITOR
         // ===================================================
+        var editorOpen = true;
+        function toggleEditor() {
+            editorOpen = !editorOpen;
+            document.getElementById('editorBody').style.display = editorOpen ? 'grid' : 'none';
+            document.getElementById('editorIcon').style.transform = editorOpen ? 'rotate(0deg)' : 'rotate(-90deg)';
+        }
+
+        // Init on load
         window.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('ed-tagline').value = 'Transfer &amp; Tarik Tunai · Paket Data · Pembayaran BPJS · Top Up E-Wallet';
-            document.getElementById('ed-alert-title').value = '⚠️ Tunjukkan QR Code Setiap Bertransaksi!';
-            document.getElementById('ed-alert-desc').value = 'Scan QR tiap transaksi agar poin Anda langsung masuk otomatis. Kumpulkan Poin — Tukar Hadiah Seru!';
+            buildEditorRows();
             buildSwatches();
             buildMotifGrid();
-            injectTheme('#7f1d1d', '#ef4444');
+            renderFlyer();
+            injectThemeStyle('#7f1d1d', '#ef4444');
         });
 
         function savePDF() {
-            alert('Klik "Cetak", lalu di dialog pilih printer "Save as PDF" atau "Microsoft Print to PDF"');
+            alert('Klik "Cetak Sekarang", lalu di jendela print pilih printer "Save as PDF" atau "Microsoft Print to PDF"');
         }
 
         function downloadImg(format) {
             var btnPng = document.getElementById('btnPng');
             var btnJpg = document.getElementById('btnJpg');
-            var poster = document.getElementById('poster');
+            var flyer = document.getElementById('flyer');
 
+            // Disable buttons saat proses
             btnPng.disabled = true;
             btnJpg.disabled = true;
             btnPng.textContent = '⏳ Memproses...';
             btnJpg.textContent = '⏳ Memproses...';
 
-            html2canvas(poster, {
-                scale: 3,
+            html2canvas(flyer, {
+                scale: 3,           // resolusi 3x = kualitas tinggi
                 useCORS: true,
                 allowTaint: true,
                 backgroundColor: '#ffffff',
@@ -938,19 +1336,21 @@
             }).then(function (canvas) {
                 var link = document.createElement('a');
                 if (format === 'png') {
-                    link.download = 'MADING_KARTU_MEMBER_HAMBA_CELL_PRINT.png';
+                    link.download = 'PROMO_MEMBER_HAMBA_CELL_PRINT.png';
                     link.href = canvas.toDataURL('image/png');
                 } else {
-                    link.download = 'MADING_KARTU_MEMBER_HAMBA_CELL_PRINT.jpg';
+                    link.download = 'PROMO_MEMBER_HAMBA_CELL_PRINT.jpg';
                     link.href = canvas.toDataURL('image/jpeg', 0.95);
                 }
                 link.click();
+
+                // Re-enable buttons
                 btnPng.disabled = false;
                 btnJpg.disabled = false;
                 btnPng.textContent = '🖼️ Download PNG';
                 btnJpg.textContent = '📸 Download JPG';
             }).catch(function (err) {
-                alert('Gagal: ' + err.message);
+                alert('Gagal membuat gambar: ' + err.message);
                 btnPng.disabled = false;
                 btnJpg.disabled = false;
                 btnPng.textContent = '🖼️ Download PNG';
